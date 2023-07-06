@@ -11,30 +11,9 @@ The DHT11 sensor, which measures temperature and humidity, gives the home automa
 
 In general, this home automation system provides mainly insights about different home environment parameters that can be utilized in automating the home devices and makes life easier. But also increases the efficiency of the energy usage and creates a more comfortable mood. 
 ## Material
-| Component | Price | Specification |
+| Component | Price and link | Specification |
 | --- | --- | --------------------- |
-| Start Kit – Applied IoT at Linnaeus University (2023)| [399 SEK](https://www.electrokit.com/produkt/start-kit-applied-iot-at-linnaeus-university-2023/)| Includes a Raspberry Pi Pico WH, a breadborad, wires, and a DHT11 sensor|
-| PIR rörelsedetektor HC-SR501| [49 SEK]( https://www.electrokit.com/produkt/pir-rorelsedetektor-hc-sr501/)| Motion sensor that detects the heat from people and animals and has a sensing distance of 3-7 m|
-| TP-link Tapo P100| [199 SEK]( https://www.kjell.com/se/produkter/smarta-hem/fjarrstrombrytare/fjarrstrombrytare-wifi/tp-link-tapo-mini-smart-wifi-fjarrstrombrytare-1-pack-p51639/)| Smart Wifi Remote Switch|
-| YEELIGHT LED Smart bulb E27| [109 SEK](https://www.maxgaming.se/sv/ljuskallor/led-smart-bulb-e27-8w-900lm-w3-white-dimmable?utm_source=kelkoose&utm_medium=cpc&utm_campaign=kelkooclick&utm_term=Yeelight+LED+Smart+bulb+E27+8W+900Lm+W3+/)| Smart LED Light Bulb from Yeelight |
-
-## Computer setup
-# Home Automation System
-Created by: Yaman Alkurdi (ya222gh)
-
-In this comprehensive tutorial you will be provided with a step-by-step guide to create your own home automation application and be able to gain some hands-on experience in IoT-development. Focusing on the practical moments of the application and combining hardware and software foundations you will be provided with a simple home automation project that you can replicate within just 5 hours.
-## Objective
-To improve the functionality and comfort of the home environment, it was decided to construct a home automation system employing a motion PIR sensor and DHT11 sensor. This system's main goal is to automate multiple processes and provide more control over the home’s environment, which will ultimately increase comfort and energy efficiency.
-
-By integrating the motion PIR sensor, the system can trigger human presence and make specific actions. For instance, to save energy, a room's lights may be programmed to turn on when a person enters and off when they leave. Daily tasks are made easier and require less manual intervention thanks to automation.
-
-The DHT11 sensor, which measures temperature and humidity, gives the home automation system additional data. The system can optimize climate control and modify cooling settings based on current conditions by tracking the temperature. This guarantees a cozy living space while reducing energy use.
-
-In general, this home automation system provides mainly insights about different home environment parameters that can be utilized in automating the home devices and makes life easier. But also increases the efficiency of the energy usage and creates a more comfortable mood. 
-## Material
-| Component | Price | Specification |
-| --- | --- | --------------------- |
-| Start Kit – Applied IoT at Linnaeus University (2023)| [399 SEK](https://www.electrokit.com/produkt/start-kit-applied-iot-at-linnaeus-university-2023/)| Includes a Raspberry Pi Pico WH, a breadborad, wires, and a DHT11 sensor|
+| Start Kit – Applied IoT at Linnaeus University (2023)| [399 SEK](https://www.electrokit.com/produkt/start-kit-applied-iot-at-linnaeus-university-2023/)| Includes a Raspberry Pi Pico WH, a breadborad, wires, and a DHT11 sensor (Temp/humidity sensor)|
 | PIR rörelsedetektor HC-SR501| [49 SEK]( https://www.electrokit.com/produkt/pir-rorelsedetektor-hc-sr501/)| Motion sensor that detects the heat from people and animals and has a sensing distance of 3-7 m|
 | TP-link Tapo P100| [199 SEK]( https://www.kjell.com/se/produkter/smarta-hem/fjarrstrombrytare/fjarrstrombrytare-wifi/tp-link-tapo-mini-smart-wifi-fjarrstrombrytare-1-pack-p51639/)| Smart Wifi Remote Switch|
 | YEELIGHT LED Smart bulb E27| [109 SEK](https://www.maxgaming.se/sv/ljuskallor/led-smart-bulb-e27-8w-900lm-w3-white-dimmable?utm_source=kelkoose&utm_medium=cpc&utm_campaign=kelkooclick&utm_term=Yeelight+LED+Smart+bulb+E27+8W+900Lm+W3+/)| Smart LED Light Bulb from Yeelight |
@@ -45,9 +24,9 @@ To program your Raspberry Pi Pico WH using MicroPython and Pymakr in Visual Stud
 
 1. Flashing the firmware on Raspberry Pi Pico WH:
    - Download the latest MicroPython firmware for Raspberry Pi Pico from the official MicroPython [website]( https://micropython.org/download/rp2-pico/)
-   - Put the Raspberry Pi Pico WH into bootloader mode by pressing and holding the BOOTSEL button while connecting it to your computer using a USB cable.
+   - Put the Raspberry Pi Pico WH into bootloader mode by pressing and holding the `BOOTSEL` button while connecting it to your computer using a USB cable.
    - The Raspberry Pi Pico WH will appear as a USB mass storage device on your computer.
-   - Drag and drop the downloaded firmware file (a .uf2 file) onto the Raspberry Pi Pico WH USB mass storage device.
+   - Drag and drop the downloaded firmware file `(a .uf2 file)` onto the Raspberry Pi Pico WH USB mass storage device.
    - The firmware will be flashed to the device, and the Raspberry Pi Pico WH will restart with MicroPython.
 2. Installing Visual Studio Code and Pymakr:
    - Download and install Visual Studio Code from the official website: https://code.visualstudio.com/.
@@ -61,45 +40,23 @@ To program your Raspberry Pi Pico WH using MicroPython and Pymakr in Visual Stud
    - Search for "Pymakr: Select Serial Port" and choose the serial port corresponding to your Raspberry Pi Pico WH.
    - You can also use the Pymakr toolbar to perform common tasks like uploading files and executing commands on the device.
 4. Adding and uploading code:
-   - Add the code inside the “src” folder from my Github repository into your project folder in VS Code.
-   - Use the Pymakr toolbar or right-click on the file and select "Upload" to upload the code to the Raspberry Pi Pico WH.
+   - Add the code inside the `src` folder from my Github repository into your project folder in VS Code.
+   - Use the Pymakr toolbar or right-click on the file and select `Upload` to upload the code to the Raspberry Pi Pico WH.
    - The code will be uploaded and executed on the device, and you can view the output in REPL terminal.
 
 ### Docker, Mosquitto and Node-RED
 The Node-RED platform is used as a user interface of the home automation system and the Mosquitto broker as a MQTT communication protocol between the Pico and the user interface. 
 
 1. Install Docker Desktop:
-   - Follow the official documentation to install Docker and Docker Compose on your specific operating system:
-     - Docker: https://docs.docker.com/get-docker/
+   - Follow the official documentation to install `Docker`: https://docs.docker.com/get-docker/
 2. Create a project directory:
    - Create a new directory for your project and navigate to it in your terminal or command prompt.
-3. Create a Docker Compose file:
-   - Create a file named `docker-compose.yml` in your project directory.
-   - Open the `docker-compose.yml` file and add the following content:
-
-     ```
-	     version: '3'
-	
-			services:
-			    mosquitto:
-			        restart: always
-			        image: eclipse-mosquitto:latest
-			        container_name: broker1
-			        ports:
-			            - 1883:1883
-			        volumes:
-			            - ./mosquitto.conf:/mosquitto/config/mosquitto.conf
-			       node-red:
-			         image: nodered/node-red
-			         container_name: node-red
-			         ports:
-			           - 1880:1880
-			         volumes:
-			           - ./node-red:/data
-     ```
-
- 	- Save the `docker-compose.yml` file.
-	- In the same project directory, create first a file with the name “acl.acl” with these configurations:
+3. Docker Compose:
+	- Download the `docker-compose.yml` file from my repository to your project directory
+4. Configuration files:
+   
+	Mosquitto:
+	- In the same project directory, create first a file with the name `acl.acl` with these configurations:
 	     ```
 		user admin
 		topic read $SYS/#
@@ -108,17 +65,11 @@ The Node-RED platform is used as a user interface of the home automation system 
 		user myUser
 		topic readwrite devices/#
 	     ```
-      - Create then a password file with this text format:
-	     ```
-		user: password
-	     ```
-
-
-	- In the same project directory, create a file named `mosquitto.conf` and open it using a text editor.
- 	 - Add these custom configurations to the `mosquitto.conf` file:
-
+    - Create then a password file for mosquitto with your own users and passwords (Must be the same users as in the acl file above)
+    - In the same project directory, create a file named `mosquitto.conf` and open it using a text editor
+    - Add these custom configurations to the `mosquitto.conf` file:
 		
-	```
+		```
 		listener 1883
 		allow_anonymous false
 		persistent_client_expiration 15d     
@@ -129,18 +80,44 @@ The Node-RED platform is used as a user interface of the home automation system 
 		max_keepalive 0    
 		password_file /mosquitto/config/passwd
 		acl_file /mosquitto/config/acl.acl
+		```
+    - Save the `mosquitto.conf` file in your project directory.
+
+	Telegraf:
+	- In the same project directory, create a file named `telegraf.conf` and open it using a text editor
+ 	- Edit the file with the mosquitto username and password you chose in previous step
+  	- The username and password of influxdb should be the same as these in the the `docker-compose` file
+	```
+	[agent]
+	  flush_interval = "15s"
+	  interval = "15s"
+	
+	[[inputs.mqtt_consumer]]
+	  name_override = "mosquitto"
+	  servers = ["tcp://127.0.0.1:1883"]
+	  qos = 0
+	  connection_timeout = "30s"
+	  topics = [ "devices/#" ]
+	  username = "myUser"
+	  password = "myUser"
+	  data_format = "json"
+	
+	
+	[[outputs.influxdb]]
+	  database = "iot_db"
+	  urls = [ "http://influxdb:8086" ]
+	  username = "admin"
+	  password = "admin"
 	```
 
- 	  - Save the `mosquitto.conf` file in your project directory.
-
-
+	
 4. Set up Node-RED:
    - Create a directory named `node-red` in your project directory.
    - Open a terminal and navigate to your project directory.
    - Run the following command to create the necessary files and folders for Node-RED:
-     ```
- 		docker-compose run --rm node-red npm install node-red-dashboard
-     ```
+		```
+		docker-compose run --rm node-red npm install node-red-dashboard
+		```
 
 5. Start the containers:
    - In the terminal or command prompt, navigate to your project directory.
@@ -149,25 +126,27 @@ The Node-RED platform is used as a user interface of the home automation system 
      docker-compose up -d
      ```
 
-6. Access Node-RED:
+6. Access Node-RED/Grafana:
    - Open a web browser and go to `http://localhost:1880` to access the Node-RED editor.
-   - You can now import the “flow.json” from my Github repository file using the Node-RED editor.
+   - You can now import the `flow.json` from my Github repository file using the Node-RED editor.
+   - Grafana (optional): Open a web browser and go to `http://localhost:3000`. Use the credentials `admin/admin` to log in.
 
 7. Configure MQTT in Node-RED:
    - Inside the Node-RED editor, add the MQTT nodes to your flows.
-   - Configure the MQTT nodes to connect to the Mosquitto MQTT broker using the hostname `mosquitto` and port `1883`. Then add the username and password from the mosquitto.conf file.
+   - Configure the MQTT nodes to connect to the Mosquitto MQTT broker using the hostname `mosquitto` and port `1883`. Then add the username and password from the `mosquitto.conf` file.
 
 8. Import the flow:
-   - Inside the Node-RED editor, click on the menu icon in the top-right corner and select "Import" -> "Clipboard".
-   - Select a file from you local machine and click the "Import" button to import the flow.
+   - Inside the Node-RED editor, click on the menu icon in the top-right corner and select `"Import" -> "Clipboard"`.
+   - Select a file from you local machine and click the `Import` button to import the flow.
 
 9. Deploy the flow:
-   - Once the flow is imported, click the "Deploy" button in the top-right corner of the Node-RED editor to deploy the flow.
+   - Once the flow is imported, click the `Deploy` button in the top-right corner of the Node-RED editor to deploy the flow.
 
 Note: Ensure that you have a basic understanding of Docker and Docker Compose concepts. It's always recommended to refer to the official documentation and resources for detailed and up-to-date instructions specific to your operating system and environment.
 
 ## Putting everything together
-To be added
+![Wiring](https://github.com/11yaman/home_automation_iot_project/blob/main/Wiring.png)
+
 ## Platform
 Initially, I experimented with the TIG (Telegraf, InfluxDB, and Grafana) stack and Grafana as the user interface for data visualization. I realized later that Node-RED better suited my home automation requirements. Node-RED is integrated for its ease of use, visual programming approach, and extensive library of pre-built nodes that simplify the integration of various services.
 
@@ -177,7 +156,24 @@ Considering the project requirements, it is acceptable to have a slight delay in
 
 In conclusion, Node-RED is used as the main platform for implementing the automation logic and controlling my devices, while the TIG stack ensures reliable and efficient data storage and visualization. By combining the strengths of both the TIG stack and Node-RED, I have created a comprehensive home automation system.
 ## The code
-To be added
+All the code required for this project is attached in this repository. Please note that you have to edit the `config.py` file according to your own credentials/IP addresses:
+
+```python
+# Mosquitto broker
+mosquitto_ip_addr = 'localhost'
+mosquitto_user = 'YOUR_MOSQUITTO_USER'
+mosquitto_pass = 'YOUR_MOSQUITTO_PASSWORD'
+
+# Yeelight
+bulb_ip_addr = "YOUR_BULB_IP_ADDRESS"
+
+# IFTT Webhooks
+iftt_webhooks_key = "YOUR_IFTT_KEY"
+iftt_ac_on_event = "AC_on" # Example on event name
+iftt_ac_off_event = "AC_off" # Example on event name
+ ```
+
+
 ## Data Transmission and Connectivity
 To transmit the data, the home automation system utilizes the MQTT (Message Queuing Telemetry Transport) protocol over WIFI. MQTT is a lightweight messaging protocol suitable for IoT applications due to its low overhead and efficient data transmission. MQTT enables efficient and reliable communication between devices and the server (MQTT broker).
 
@@ -206,7 +202,12 @@ The design choices made in terms of wireless protocols, data transmission interv
 ## Presenting the data
 The main dashboard is built using Node-RED and displays the temperature, humidity, and motion data in a user-friendly and visually appealing manner. The dashboard components include temperature and humidity gauges, line charts for data in the last few hours, and chart indicator for motion detections. These components are dynamically updated as new data is received from the sensors and stored in the database. The dashboard layout and design can be customized to suit specific preferences and requirements.
 
+![Dashboard](https://github.com/11yaman/home_automation_iot_project/blob/main/Dashboard.png)
+
 An alternative dashboard in Grafana:
+
+![Dashboard2](https://github.com/11yaman/home_automation_iot_project/blob/main/Dashboard2.png)
+
 
 The collected data is stored in an InfluxDB database. InfluxDB is a time-series database that is well-suited for storing and analyzing time-stamped data. It efficiently handles large volumes of data and allows for easy retrieval and querying based on time ranges.
 
