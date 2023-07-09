@@ -23,8 +23,8 @@ PIR_sensor = Pin(26, Pin.IN, Pin.PULL_UP)
 LED = Pin("LED", Pin.OUT)
 LED.off()
 
-temperature_publish_interval = 900  # Measure temperature every 10 minutes
-motion_publish_interval = 60  # Detect motion every 180 seconds
+temperature_publish_interval = 900
+motion_publish_interval = 60 
 
 temperature_last_published = 0
 motion_last_published = 0

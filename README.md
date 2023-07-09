@@ -9,7 +9,8 @@ By integrating the motion PIR sensor, the system can trigger human presence and 
 
 The DHT11 sensor, which measures temperature and humidity, gives the home automation system additional data. The system can optimize climate control and modify cooling settings based on current conditions by tracking the temperature. This guarantees a cozy living space while reducing energy use.
 
-In general, this home automation system provides mainly insights about different home environment parameters that can be utilized in automating the home devices and makes life easier. But also increases the efficiency of the energy usage and creates a more comfortable mood. 
+In general, this home automation system provides mainly insights about different home environment parameters that can be utilized in automating home devices. But also increases the efficiency of the energy usage and creates a more comfortable mood. Node-RED handles the automation triggers, while the TIG Stack enables real-time monitoring of temperature, humidity, and motion. The combination of Node-RED and the TIG Stack provides a comprehensive solution for home automation and data-monitoring.
+
 ## Material
 | Component | Price and link | Specification |
 | --- | --- | --------------------- |
@@ -44,7 +45,7 @@ To program your Raspberry Pi Pico WH using MicroPython and Pymakr in Visual Stud
    - Use the Pymakr toolbar or right-click on the file and select `Upload` to upload the code to the Raspberry Pi Pico WH.
    - The code will be uploaded and executed on the device, and you can view the output in REPL terminal.
 
-### Docker, Mosquitto and Node-RED
+### Docker, Mosquitto, TIG-stack and Node-RED
 The Node-RED platform is used as a user interface of the home automation system and the Mosquitto broker as a MQTT communication protocol between the Pico and the user interface. 
 
 1. Install Docker Desktop:
@@ -147,6 +148,10 @@ Note: Ensure that you have a basic understanding of Docker and Docker Compose co
 ## Putting everything together
 ![Wiring](https://github.com/11yaman/home_automation_iot_project/blob/main/Wiring.png)
 
+The circuit diagram showcases the connections between the Pico W, DHT11 sensor, and PIR motion sensor, providing a visual representation of how the components are connected.
+
+The DHT11 sensor operates at 3.3V, and its data pin is connected to a GPIO pin on the Pico W. The PIR motion sensor also operates at 3.3V and is connected to another GPIO pin on the Pico W. Resistors are not specifically required for this setup as the sensors are designed to be directly connected to the microcontroller's GPIO pins. However, it is important to ensure that the current requirements of the sensors are within the limits of the microcontroller's GPIO pins to avoid any damage. 
+
 ## Platform
 Initially, I experimented with the TIG (Telegraf, InfluxDB, and Grafana) stack and Grafana as the user interface for data visualization. I realized later that Node-RED better suited my home automation requirements. Node-RED is integrated for its ease of use, visual programming approach, and extensive library of pre-built nodes that simplify the integration of various services.
 
@@ -190,7 +195,7 @@ The data is published in JSON format using the MQTT protocol. The JSON format al
   ```
 
 ### Data Transmission and protocols:
-The temperature and humidity data are measured at a fixed interval of 15 minutes. This interval determines how often the data is collected and transmitted to the MQTT broker. On the other hand, the motion data is continuously monitored, but it is sent to the broker only once every minute. This approach helps to conserve network bandwidth and optimize resource usage.
+The temperature and humidity data are measured and published at a fixed interval of 15 minutes. This interval determines how often the data is collected and transmitted to the MQTT broker. On the other hand, the motion data is continuously scanned, but it is published only when a motion is detected and at a frequency of once every minute. This approach helps to conserve network bandwidth and optimize resource usage.
 
 WiFi is the wireless protocol used in the home automation system. WiFi provides a reliable and widely available wireless network connection, allowing the devices to connect to the local network and communicate with the MQTT broker over the internet. The MQTT protocol is used as the transport protocol for data transmission. It ensures efficient and reliable message exchange between the device and the MQTT broker.
 
@@ -211,6 +216,16 @@ An alternative dashboard in Grafana:
 
 The collected data is stored in an InfluxDB database. InfluxDB is a time-series database that is well-suited for storing and analyzing time-stamped data. It efficiently handles large volumes of data and allows for easy retrieval and querying based on time ranges.
 
+The data is saved in the database every time it is received by the MQTT broker. As previously mentioned, the temperature and humidity data are measured and published at a fixed interval of 15 minutes, while the motion data is published only when a motion is detected and at a frequency of once every minute. Each time the data is published, it is captured by Telegraf, which is responsible for collecting and storing the data into the InfluxDB database.
+
 The choice of InfluxDB as the database for this home automation system is driven by its suitability for time-series data. InfluxDB efficiently handles the continuous influx of sensor data and provides powerful querying capabilities for time-based analysis. It supports the retention of data for the desired duration, allowing for historical comparisons and trend analysis.
 
 The automation and triggers for the home automation system are handled in MicroPython running on the Raspberry Pi Pico W. Node-RED interacts with the Pico W by sending triggers or instructions based on user options.
+
+## Final results
+
+Here are the final results of my home automation project. The system successfully integrates a motion PIR sensor and DHT11 sensor to automate various processes and enhance comfort in my home. The custom dashboard in Node-RED provides real-time insights into temperature, humidity, and motion data, allowing me to make informed decisions. The project could have been further enhanced by integrating additional sensors or implementing voice control functionality. Overall, the project went well and achieved its objectives.
+
+[Video presentation of the final result: ](https://youtu.be/vGo5s0sw_3E)
+
+[![Video](https://img.youtube.com/vi/vGo5s0sw_3E/0.jpg)](https://youtu.be/vGo5s0sw_3E)
