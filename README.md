@@ -225,7 +225,3 @@ The automation and triggers for the home automation system are handled in MicroP
 ## Final results
 
 Here are the final results of my home automation project. The system successfully integrates a motion PIR sensor and DHT11 sensor to automate various processes and enhance comfort in my home. The custom dashboard in Node-RED provides real-time insights into temperature, humidity, and motion data, allowing me to make informed decisions. The project could have been further enhanced by integrating additional sensors or implementing voice control functionality. Overall, the project went well and achieved its objectives.
-
-[Video presentation of the final result: ](https://youtu.be/vGo5s0sw_3E)
-
-[![Video](https://img.youtube.com/vi/vGo5s0sw_3E/0.jpg)](https://youtu.be/vGo5s0sw_3E)
