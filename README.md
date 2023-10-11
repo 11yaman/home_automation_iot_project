@@ -1,6 +1,4 @@
 # Home Automation System
-Created by: Yaman Alkurdi (ya222gh)
-
 In this comprehensive tutorial you will be provided with a step-by-step guide to create your own home automation application and be able to gain some hands-on experience in IoT-development. Focusing on the practical moments of the application and combining hardware and software foundations you will be provided with a simple home automation project that you can replicate within just 5 hours.
 ## Objective
 To improve the functionality and comfort of the home environment, it was decided to construct a home automation system employing a motion PIR sensor and DHT11 sensor. This system's main goal is to automate multiple processes and provide more control over the home’s environment, which will ultimately increase comfort and energy efficiency.
